@@ -1,0 +1,8 @@
+# Remove large unwanted directories
+node_modules
+__pycache__
+
+# For now, don't push images to github
+*.png
+*.jpg
+
