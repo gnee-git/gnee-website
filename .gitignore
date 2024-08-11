@@ -8,3 +8,8 @@ __pycache__
 
 key.txt
 settings.json
+app.yaml
+.gcloudignore
+file_upload.py
+.venv/
+instance/
