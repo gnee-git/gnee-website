@@ -1,0 +1,6 @@
+python-tk
+google-cloud-storage
+flask
+datetime
+flask_sqlalchemy
+sqlite3

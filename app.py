@@ -1,29 +1,30 @@
-import sqlite3
-from flask import Flask, render_template, request
-from werkzeug.exceptions import abort
+from flask import Flask, render_template
+from database.db_utils import get_photos, get_blog_posts
+from database.models import db
+from config import Config
+import os
 
 app = Flask(__name__)
+app.config.from_object(Config)
 
-def get_db_connection():
-    conn=sqlite3.connect('database.db')
-    conn.row_factory=sqlite3.Row
-    return conn
+db.init_app(app)
 
-def shutdown_server():
-    func = request.environ.get('werkzeug.server.shutdown')
-    if func is None:
-        raise RuntimeError('Not running with the Werkzeug Server')
-    func()
-    
-@app.get('/shutdown')
-def shutdown():
-    shutdown_server()
-    return 'Server shutting down...'
-
+# Routes
 @app.route('/')
-def hello():
+def index():
     return render_template('index.html')
+
+@app.route('/photography')
+def photography():
+    photos = get_photos()
+    return render_template('photography.html', photos=photos)
+
+@app.route('/blog')
+def blog():
+    posts = get_blog_posts()
+    return render_template('blog.html', posts=posts)
+
+# ... other routes for music, contact, professional
 
 if __name__ == '__main__':
     app.run(debug=True)
-    app.shutdown()

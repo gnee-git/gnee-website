@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Photography{% endblock %}
+{% block content %}
+    <h1>My Photography</h1>
+    <div class="columns is-multiline">
+        {% for photo in photos %}
+            <div class="column is-one-quarter">
+                <img src="{{ photo.url }}" alt="{{ photo.description }}">
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
