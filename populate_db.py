@@ -5,10 +5,18 @@ from google.cloud import storage
 from database.models import db, Post
 from flask import Flask
 from config import Config
+import json
+
+# Get the settings from the settings.json file
+with open('settings.json', 'r') as f:
+    settings = json.load(f)
+
+
 
 # Google Cloud Storage Configuration
-GCS_BUCKET_NAME = 'gnee-website-photography'
-GCS_PROJECT_ID = os.environ.get('gnee-website')  # Replace with your project ID
+GCS_BUCKET_NAME = settings['GCS_BUCKET_NAME']
+GCS_PROJECT_ID = settings['GCS_PROJECT_NAME']  # Replace with your project ID
+GCS_DATABASE_FILE = settings['GCS_DATABASE_NAME']  # Name of the SQLite file in GCS
 
 # Initialize Google Cloud Storage client
 storage_client = storage.Client(project=GCS_PROJECT_ID)
