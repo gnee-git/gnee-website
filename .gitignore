@@ -13,3 +13,5 @@ app.yaml
 file_upload.py
 .venv/
 instance/
+
+.DS_Store

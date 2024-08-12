@@ -53,7 +53,7 @@ def create_blog_post():
     blog_window.title("Create Blog Post")
 
     Label(blog_window, text="Enter your blog post in Markdown:").pack()
-    blog_text = Text(blog_window, height=10, width=50)
+    blog_text = Text(blog_window, height=100, width=350)
     blog_text.pack()
 
     Button(blog_window, text="Save", command=save_blog_post).pack()
