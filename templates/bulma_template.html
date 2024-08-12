@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gnee.co.uk</title>
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="static/src/style.css">
+    <style>
+        /* Full-page background image */
+        body {
+            background-image: url('https://storage.googleapis.com/gnee-website/000005010007.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Custom styles for glass effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 1rem;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .navbar-menu {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-menu a {
+            color: white;
+            margin-left: 1rem;
+            text-decoration: none;
+        }
+
+        .navbar-menu a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu-toggle span {
+            height: 2px;
+            width: 25px;
+            background-color: white;
+            margin: 3px 0;
+        }
+
+        .navbar-menu-mobile {
+            display: none;
+            flex-direction: column;
+            margin-top: 1rem;
+        }
+
+        .navbar-menu-mobile a {
+            color: white;
+            padding: 0.5rem 0;
+            text-decoration: none;
+        }
+
+        .navbar-menu-mobile a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+            }
+            .mobile-menu-toggle {
+                display: flex;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .navbar-menu-mobile {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container is-fluid">
+            <div class="navbar-brand">
+                <a href="/" class="has-text-black">george r needham</a>
+                <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <div class="navbar-menu">
+                <a href="/professional">Professional</a>
+                <a href="/blog">Blog</a>
+                <a href="/music">Music</a>
+                <a href="/photography">Photography</a>
+                <a href="/contact">Contact</a>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="navbar-menu-mobile" id="mobileMenu">
+                <a href="/professional">Professional</a>
+                <a href="/blog">Blog</a>
+                <a href="/music">Music</a>
+                <a href="/photography">Photography</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="section">
+        <div class="container">
+            <div class="glass has-text-centered">
+                <h1 class="title">gnee.co.uk - Website Coming Soon</h1>
+                <p class="subtitle">Content currently being created.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>

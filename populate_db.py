@@ -22,12 +22,19 @@ GCS_DATABASE_FILE = settings['GCS_DATABASE_NAME']  # Name of the SQLite file in 
 storage_client = storage.Client(project=GCS_PROJECT_ID)
 bucket = storage_client.bucket(GCS_BUCKET_NAME)
 
+
+
 # Create a Flask app instance (but don't run it)
 app = Flask(__name__)
 app.config.from_object(Config)
 
 # Initialize the database
 db.init_app(app)
+
+# Check whether the database file exists in the app config location - if not, download it from GCS
+if not os.path.exists(app.config['SQLALCHEMY_DATABASE_URI'].split('///')[1]):
+    blob = bucket.blob(GCS_DATABASE_FILE)
+    blob.download_to_filename(app.config['SQLALCHEMY_DATABASE_URI'].split('///')[1])
 
 def create_blog_post():
     def save_blog_post():
