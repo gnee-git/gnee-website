@@ -1,13 +1,56 @@
 {% extends 'base.html' %}
 {% block title %}Blog{% endblock %}
 {% block content %}
-    <h1>My Blog</h1>
-    <ul>
-        {% for post in posts %}
-            <li>
-                <h2>{{ post.title }}</h2>
-                <p>{{ post.content }}</p>
-            </li>
-        {% endfor %}
-    </ul>
+
+<!-- Adapted from Testimonials Section from Folio template -->
+<section id="blog" class="blog section light-background">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Blog Posts</h2>
+    </div><!-- End Section Title -->
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+        <script type="application/json" class="swiper-config">
+            {
+            "loop": true,
+            "speed": 600,
+            "autoplay": {
+                "delay": 5000
+            },
+            "slidesPerView": "auto",
+            "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+            }
+            }
+        </script>
+
+
+        <div class="swiper-wrapper">
+            {% for post in posts %}
+                <div class="swiper-slide">
+                <div class="testimonial-item">
+                    <h3>{{ post.blog_title }}</h3>
+                    <h4>{{ post.date_time }}</h4>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    <span>{{ post.blog_text }}</span>
+                    <i class="bi bi-quote quote-icon-right"></i>
+                    </p>
+                </div>
+                </div><!-- End testimonial item -->
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+        </div>
+
+    </div>
+
+    </section><!-- /Testimonials Section -->
+
 {% endblock %}
+
+
+

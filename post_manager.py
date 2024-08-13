@@ -51,6 +51,11 @@ def create_blog_post():
 
     blog_window = Tk()
     blog_window.title("Create Blog Post")
+    
+    # add a text box for the blog post title above the content entry:
+    Label(blog_window, text="Enter your blog post title:").pack()
+    blog_title = Entry(blog_window)
+    blog_title.pack()
 
     Label(blog_window, text="Enter your blog post in Markdown:").pack()
     blog_text = Text(blog_window, height=100, width=350)

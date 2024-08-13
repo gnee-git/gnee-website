@@ -24,7 +24,13 @@ def blog():
     posts = get_blog_posts()
     return render_template('blog.html', posts=posts)
 
-# ... other routes for music, contact, professional
+@app.route('/music')
+def music():
+    return render_template('music.html')
+
+@app.route('/professional')
+def professional():
+    return render_template('professional.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
