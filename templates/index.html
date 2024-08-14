@@ -46,7 +46,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="templates/index.html" class="logo d-flex align-items-center">
+      <a href="{{ url_for('index') }}" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="static/img/logo.png" alt=""> -->
         <h1 class="sitename">gnee.co.uk</h1>
@@ -56,9 +56,9 @@
         <ul>
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="templates/professional.html">Professional</a></li>
-          <li><a href="templates/blog.html">Blog</a></li>
-          <li><a href="templates/photography.html">Photography</a></li>
+          <li><a href="{{ url_for('professional') }}">Professional</a></li>
+          <li><a href="{{ url_for('blog') }}">Blog</a></li>
+          <li><a href="{{ url_for('photography') }}">Photography</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

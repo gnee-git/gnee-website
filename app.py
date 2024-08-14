@@ -1,6 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 from database.db_utils import get_photos, get_blog_posts
-from database.models import db
+from create_db import db
 from config import Config
 import os
 

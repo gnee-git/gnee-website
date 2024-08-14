@@ -1,4 +1,4 @@
-from database.models import db, Post
+from create_db import db, Post
 
 def get_photos():
     return Post.query.filter_by(post_type='photography').order_by(Post.date_time.desc()).all()
