@@ -29,9 +29,9 @@
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: rgba(0, 0, 0, 0.0);  /* The default color of the main navmenu links */
-  --nav-hover-color: #000000; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #000000; /* Used as the background color for mobile navigation menu */
+  --nav-color: rgba(255, 255, 255, 0.6);  /* The default color of the main navmenu links */
+  --nav-hover-color: #ffffff; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #898989; /* Used for navigation links of the dropdown items in the navigation menu. */
   --nav-dropdown-hover-color: #b8a07e; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
@@ -52,10 +52,10 @@
   --contrast-color: #ffffff;
 }
 
-/* Smooth scroll
+/* Smooth scroll */
 :root {
   scroll-behavior: smooth;
-} */
+}
 
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
@@ -144,8 +144,8 @@ h6 {
 --------------------------------------------------------------*/
 .header {
   --background-color: rgba(0, 0, 0, 0);
-  --default-color: #000000;
-  --heading-color: #000000;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
   color: var(--default-color);
   background-color: var(--background-color);
   padding: 10px 0;
@@ -519,7 +519,7 @@ h6 {
 .scroll-top {
   position: fixed;
   visibility: hidden;
-  opacity: 0;
+  opacity: 1;
   right: 15px;
   bottom: 15px;
   z-index: 99999;
