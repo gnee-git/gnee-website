@@ -13,5 +13,6 @@ app.yaml
 file_upload.py
 .venv/
 instance/
+fonts/
 
 .DS_Store
