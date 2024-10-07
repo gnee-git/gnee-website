@@ -2,7 +2,7 @@ import os
 import datetime
 from tkinter import Tk, Label, Button, Entry, Text, filedialog
 from google.cloud import storage
-from database.models import db, Post
+from create_db import db, Post
 from flask import Flask
 from config import Config
 import json
@@ -58,7 +58,7 @@ def create_blog_post():
     blog_title.pack()
 
     Label(blog_window, text="Enter your blog post in Markdown:").pack()
-    blog_text = Text(blog_window, height=100, width=350)
+    blog_text = Text(blog_window, height=50, width=80)
     blog_text.pack()
 
     Button(blog_window, text="Save", command=save_blog_post).pack()

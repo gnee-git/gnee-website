@@ -33,4 +33,4 @@ def professional():
     return render_template('professional.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=8000, debug=True)

@@ -32,7 +32,7 @@ class Post(db.Model):
     blog_title = db.Column(db.String(255), nullable=True)
     blog_text = db.Column(db.Text, nullable=True)
 
-    def __init__(self, post_type, photography_url, photography_comment, blog_title, blog_text):
+    def __init__(self, post_type, photography_url=None, photography_comment=None, blog_title=None, blog_text=None):
         # generate a random 4 digit integer for the id
         self.id = random.randint(1000, 9999)
         self.date_time = datetime.datetime.now()

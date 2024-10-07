@@ -35,9 +35,13 @@
                 <div class="testimonial-item">
                     <h3>{{ post.blog_title }}</h3>
                     <h4>{{ post.date_time }}</h4>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span>{{ post.blog_text }}</span>
-                    <i class="bi bi-quote quote-icon-right"></i>
+                    <i class="bi bi-bookmark"></i>
+                    <zero-md>
+                        <template>
+                        {{ post.blog_text }}
+                        </template>
+                    </zero-md>
+                    <!--<span>{{ post.blog_text }}</span> -->
                     </p>
                 </div>
                 </div><!-- End testimonial item -->
