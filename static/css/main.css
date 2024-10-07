@@ -1461,3 +1461,14 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+
+/*--------------------------------------------------------------
+# Font Extras
+--------------------------------------------------------------*/
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
