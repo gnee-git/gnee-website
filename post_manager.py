@@ -39,7 +39,8 @@ if not os.path.exists(app.config['SQLALCHEMY_DATABASE_URI'].split('///')[1]):
 def create_blog_post():
     def save_blog_post():
         content = blog_text.get("1.0", "end-1c")
-        post = Post(post_type='blog', blog_text=content)
+        title = blog_title.get()
+        post = Post(post_type='blog', blog_text=content, blog_title=title)
         with app.app_context():
             db.session.add(post)
             db.session.commit()

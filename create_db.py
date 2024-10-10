@@ -55,6 +55,26 @@ GCS_DATABASE_FILE = settings['GCS_DATABASE_NAME']  # Name of the SQLite file in 
 with app.app_context():
     db.create_all()
 
+    # Check whether the database file exists in the Google Cloud Storage bucket - if it does, download it
+    storage_client = storage.Client(project=GCS_PROJECT_ID)
+    bucket = storage_client.bucket(GCS_BUCKET_NAME)
+    blob = bucket.blob(GCS_DATABASE_FILE)
+
+    if not os.path.exists(app.config['SQLALCHEMY_DATABASE_URI'].split('///')[1]):
+        blob.download_to_filename(app.config['SQLALCHEMY_DATABASE_URI'].split('///')[1])
+
+    # # Now make sure all Posts from the downloaded sqlite file are in the database
+    # conn = sqlite3.connect(app.config['SQLALCHEMY_DATABASE_URI'].split('///')[1])
+    # cursor = conn.cursor()
+    # cursor.execute("SELECT * FROM post")
+    # rows = cursor.fetchall()
+
+    # for row in rows:
+    #     post = Post(post_type=row[1], photography_url=row[2], photography_comment=row[3], blog_title=row[4], blog_text=row[5])
+    #     db.session.add(post)
+    #     db.session.commit()
+
+
     # Create a dummy post, that has none for all fields
     post = Post( post_type='none', photography_url=None, photography_comment=None, blog_title=None, blog_text=None)
     db.session.add(post)
@@ -81,6 +101,8 @@ with app.app_context():
     storage_client = storage.Client(project=GCS_PROJECT_ID)
     bucket = storage_client.bucket(GCS_BUCKET_NAME)
     blob = bucket.blob(GCS_DATABASE_FILE)
+
+
 
     blob.upload_from_filename(app.config['SQLALCHEMY_DATABASE_URI'].split('///')[1])
 
