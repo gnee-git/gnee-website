@@ -6,7 +6,7 @@ from google.cloud import storage
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
 import random
-import sqlite3
+# import sqlite3
 
 with open('settings.json', 'r') as f:
     settings = json.load(f)
@@ -63,16 +63,13 @@ with app.app_context():
     if not os.path.exists(app.config['SQLALCHEMY_DATABASE_URI'].split('///')[1]):
         blob.download_to_filename(app.config['SQLALCHEMY_DATABASE_URI'].split('///')[1])
 
-    # # Now make sure all Posts from the downloaded sqlite file are in the database
-    # conn = sqlite3.connect(app.config['SQLALCHEMY_DATABASE_URI'].split('///')[1])
-    # cursor = conn.cursor()
-    # cursor.execute("SELECT * FROM post")
-    # rows = cursor.fetchall()
-
-    # for row in rows:
-    #     post = Post(post_type=row[1], photography_url=row[2], photography_comment=row[3], blog_title=row[4], blog_text=row[5])
+    # posts = db.session.query(Post).all()
+    # for row in posts:
+    #     post = Post(post_type=row.post_type, photography_url=row.photography_url, 
+    #                 photography_comment=row.photography_comment, blog_title=row.blog_title, 
+    #                 blog_text=row.blog_text)
     #     db.session.add(post)
-    #     db.session.commit()
+    # db.session.commit()
 
 
     # Create a dummy post, that has none for all fields
@@ -85,17 +82,17 @@ with app.app_context():
     db.session.close()
 
 
-    # now check the database file exists and has a post in it
-    conn = sqlite3.connect(app.config['SQLALCHEMY_DATABASE_URI'].split('///')[1])
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM post")
-    rows = cursor.fetchall()
+    # # # now check the database file exists and has a post in it
+    # conn = sqlite3.connect(app.config['SQLALCHEMY_DATABASE_URI'].split('///')[1])
+    # cursor = conn.cursor()
+    # cursor.execute("SELECT * FROM post")
+    # rows = cursor.fetchall()
 
-    for row in rows:
-        print(row)
+    # for row in rows:
+    #     print(row)
 
-    # close the connection to the database
-    conn.close()
+    # # close the connection to the database
+    # conn.close()
 
     # Initialize Google Cloud Storage client
     storage_client = storage.Client(project=GCS_PROJECT_ID)

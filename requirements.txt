@@ -1,6 +1,4 @@
-python3-tk
 google-cloud-storage
 flask
 datetime
 flask_sqlalchemy
-sqlite3
