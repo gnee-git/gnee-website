@@ -18,8 +18,8 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 # Initialize the database
-db = SQLAlchemy()
-db.init_app(app)
+db = SQLAlchemy(app)
+# db.init_app(app)
 
 # Define the Post model
 class Post(db.Model):
@@ -101,7 +101,7 @@ with app.app_context():
 
 
 
-    blob.upload_from_filename(app.config['SQLALCHEMY_DATABASE_URI'].split('///')[1])
+    # blob.upload_from_filename(app.config['SQLALCHEMY_DATABASE_URI'].split('///')[1])
 
 
 

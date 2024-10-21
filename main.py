@@ -1,4 +1,5 @@
 from flask import Flask, render_template, url_for
+from sqlalchemy import create_engine
 from database.db_utils import get_photos, get_blog_posts
 from create_db import db
 from config import Config
@@ -26,9 +27,11 @@ if not os.path.exists(app.config['SQLALCHEMY_DATABASE_URI'].split('///')[1]):
     blob = bucket.blob(GCS_DATABASE_FILE)
     blob.download_to_filename(app.config['SQLALCHEMY_DATABASE_URI'].split('///')[1])
 
-
-
+# now use the uri to create the engine
+engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
 db.init_app(app)
+
+
 
 # Routes
 @app.route('/')

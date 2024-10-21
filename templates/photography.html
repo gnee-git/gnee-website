@@ -28,28 +28,36 @@
                 }
                 }
             </script>
-    
-    
             <div class="swiper-wrapper">
                 {% for photo in photos %}
                     <div class="swiper-slide">
-                    <div class="testimonial-item">
                         <h4>{{ photo.photography_comment }}</h4>
                         <p>{{ photo.date_time }}</p>
-                        <a href="{{ photo.photography_url }}" title="{{ photo.date_time }}" data-gallery="photography-gallery-general" class="glightbox preview-link">
-                        <img src="{{ photo.photography_url }}" alt="{{ photo.date_time }}" class="img-fluid" width="600px" height="auto">
+                        <a href="{{ photo.photography_url }}" title="{{ photo.photography_comment }}" data-gallery="photography-gallery-general" class="glightbox preview-link">
+                        <img src="{{ photo.photography_url }}" alt="{{ photo.photography_comment}}" class="img-fluid" width="600px" height="auto">
                         </a>
 
                         </p>
                     </div>
-                    </div><!-- End testimonial item -->
+
                 {% endfor %}
+
             </div>
-            <div class="swiper-pagination"></div>
+
+
             </div>
         </div>
-    
+    </div>
+
+
+
+
+
+
 
     </section><!-- /Portfolio Section -->
+
+    <div class="swiper-pagination" style="margin-top: 100px;">
+    </div>
 
     {% endblock %}
